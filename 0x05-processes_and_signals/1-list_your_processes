@@ -1,14 +1,3 @@
 #!/usr/bin/env bash
 # Get a list of all running processes
-processes=$(ps -ef)
-# Print the header
-echo "PID  USER     COMMAND"
-# Loop through the processes and print them in a user-oriented format
-while read -r line; do
-  # Get the PID, user, and command from the line
-  pid=$(echo "$line" | awk '{print $2}')
-  user=$(echo "$line" | awk '{print $1}')
-  command=$(echo "$line" | awk '{print $8}')
-  # Print the process information
-  echo "$pid  $user  $command"
-done <<< "$processes
+processes=$(ps -auxf)
